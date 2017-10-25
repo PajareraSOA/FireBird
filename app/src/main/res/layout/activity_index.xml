@@ -61,4 +61,63 @@
         android:layout_marginTop="24dp"
         android:layout_below="@+id/imageView3"
         android:layout_alignStart="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/temperatura"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView5"
+        android:layout_alignStart="@+id/imageView5"
+        android:layout_alignTop="@+id/imageView5"
+        android:layout_marginLeft="61dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="12dp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/humo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView4"
+        android:layout_alignLeft="@+id/temperatura"
+        android:layout_alignStart="@+id/temperatura"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/flama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView3"
+        android:layout_alignLeft="@+id/humo"
+        android:layout_alignStart="@+id/humo"
+        android:layout_marginBottom="10dp"
+        android:textAlignment="textStart"
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/comida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/flama"
+        android:layout_toRightOf="@+id/flama"
+        android:textAlignment="textStart"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/agua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignLeft="@+id/comida"
+        android:layout_alignStart="@+id/comida"
+        android:layout_marginBottom="11dp"
+        android:textAlignment="textStart"
+        android:textStyle="bold" />
 </RelativeLayout>

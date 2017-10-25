@@ -14,6 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.hardware.SensorEventListener;
 import android.util.Log;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -35,11 +36,17 @@ public class Index extends AppCompatActivity implements SensorEventListener {
     private SensorManager sensorManager;
     long ultimaActualizacion = 0, ultimoMovimiento = 0;
     float x = 0, y = 0, z = 0, xAnterior = 0, yAnterior = 0, zAnterior = 0;
+    private TextView[] meassures = new TextView[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
+        meassures[0] = (TextView) findViewById(R.id.temperatura);
+        meassures[1] = (TextView) findViewById(R.id.humo);
+        meassures[2] = (TextView) findViewById(R.id.flama);
+        meassures[3] = (TextView) findViewById(R.id.comida);
+        meassures[4] = (TextView) findViewById(R.id.agua);
         handlerBluetooth = myHandler();
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
     }
@@ -56,8 +63,11 @@ public class Index extends AppCompatActivity implements SensorEventListener {
 
                     //cuando recibo toda una linea la muestro en el layout
                     if (endOfLineIndex > 0) {
-                        String dataInPrint = recDataString.substring(0, endOfLineIndex);
+                        String[] dataInPrint = recDataString.substring(0, endOfLineIndex).split("-");
 
+                        for (int i =0; i < dataInPrint.length; i++) {
+                            meassures[i].setText(dataInPrint[i]);
+                        }
                         recDataString.delete(0, recDataString.length());
                     }
                 }
@@ -86,7 +96,6 @@ public class Index extends AppCompatActivity implements SensorEventListener {
                 btSocket.connect();
                 useDevice = new UseDevice(btSocket);
                 useDevice.start();
-                useDevice.write("x");
             } catch (IOException e) {
                 e.printStackTrace();
                 Toast.makeText(getApplicationContext(), "No pude crear socket", Toast.LENGTH_SHORT).show();

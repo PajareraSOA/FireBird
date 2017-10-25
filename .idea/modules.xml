@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FireBird.iml" filepath="$PROJECT_DIR$/FireBird.iml" />
       <module fileurl="file://$PROJECT_DIR$/InterfazoPajarito.iml" filepath="$PROJECT_DIR$/InterfazoPajarito.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
